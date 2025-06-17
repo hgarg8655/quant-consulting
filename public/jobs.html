@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI & ML Consulting UI</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Make body a column‐flex and center everything */
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;    /* center children horizontally */
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.5;
+      text-align: center;      /* default text‐align for headings/paragraphs */
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      width: 100%;
+      max-width: 1000px;    /* keep header from getting too wide */
+      margin: 0 auto;      /* center header container */
+    }
+    .logo img {
+      height: 40px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+    nav a {
+      color: #333;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: #4CAF50;
+    }
+    .btn-contact {
+      padding: 8px 20px;
+      border: 2px solid #333;
+      font-weight: 500;
+      border-radius: 4px;
+    }
+    .btn-contact:hover {
+      background: #4CAF50;
+      color: #fff;
+            border: 2px solid #4CAF50;
+    }
+
+    /* SERVICE SECTION */
+    .service-section {
+      flex: 1;                        /* push CTA to bottom */
+      display: flex;
+      flex-direction: column;        /* stack image + text vertically */
+      align-items: center;           /* center them horizontally */
+      max-width: 800px;
+      margin: 40px 0;              /* vertical spacing */
+      gap: 20px;
+      padding: 0 20px;
+    }
+    .service-image {
+      width: 400px;
+      height: 400px;
+      overflow: hidden;
+    }
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+    .service-content h2 {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #4caf50;
+      margin-bottom: 16px;
+    }
+    .service-content p {
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+    .service-content a {
+      color: #4caf50;
+      font-weight: 500;
+      font-size: 15px;
+    }
+    .service-content a:hover {
+      text-decoration: underline;
+    }
+
+    /* CALL-TO-ACTION */
+    .cta-section {
+      background-color: #4caf50;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+      width: 100%;
+    }
+    .cta-section h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    .cta-section p {
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+    .cta-button {
+      display: inline-block;
+      border: 2px solid #fff;
+      padding: 12px 28px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.25s;
+    }
+    .cta-button:hover {
+      background: #4caf50;;
+    }
+
+    /* Responsive tweak */
+    @media(max-width: 800px) {
+      .service-image {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+      }
+      .service-image img {
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="/images/30ba982e-3a6d-11f0-b28f-0242ac110002-png-regular_image.png" alt="Logo" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/#home">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#clients">Jobs</a></li>
+      </ul>
+    </nav>
+    <a class="btn-contact" href="/#contact">CONTACT</a>
+  </header>
+
+  <!-- SERVICE SECTION -->
+  <section class="service-section">
+    <div class="service-image">
+      <img id="job-logo" src="service.jpg" alt="AI/ML Illustration" />
+    </div>
+    <div class="service-content">
+      <h2 id="job-title">Job Title</h2>
+      <p id="job-desc">Job Not Found</p>
+      <a href="/#contact">Schedule appointment</a>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="cta-section">
+    <h2>Let's talk</h2>
+    <p>We would love to hear from you!</p>
+    <a class="cta-button" href="/#contact">Get in touch</a>
+  </section>
+
+  <script>
+    const parts = window.location.pathname.split('/');
+    const jobId = parts[parts.length - 1];
+    const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce scelerisque ornare purus nec sollicitudin. Quisque auctor lacinia libero elementum lacinia. Phasellus sit amet dolor lorem. Cras orci turpis, auctor sed laoreet ac, egestas vel elit. Nunc faucibus ex sed elit suscipit, eu faucibus nulla pretium. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In dictum quis felis eget pretium. Maecenas ut porta nisl, consequat consequat velit. Fusce sem diam, tincidunt ut molestie ac, ultricies eget ligula. Nulla dictum mauris sit amet tortor convallis, rhoncus imperdiet nunc condimentum. In porttitor dolor eu magna maximus, quis consectetur massa interdum. In non elementum ligula"+
+"Nulla et massa id libero pharetra molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris vulputate fermentum dictum. Phasellus enim leo, tristique non erat vitae, interdum viverra nisi. Quisque vulputate nibh arcu, efficitur fermentum velit ultricies ut. Maecenas nunc tortor, tempor ac velit at, ultricies imperdiet urna. Quisque justo dui, semper quis fringilla a, ullamcorper in diam."
+    const JOBS = {
+      '1': {
+        title: 'Senior Software Engineer',
+        desc: loremIpsum,
+        img: '/images/2c9abdbc-3808-11f0-afda-0242ac110002-jpeg-regular_image.jpeg'
+      },
+      '2': {
+        title: 'US Defense Finance Analyst',
+        desc: loremIpsum,
+        img: '/images/3c84b85e-3808-11f0-8dc7-0242ac110002-jpeg-regular_image.jpeg'
+      },
+      '3': {
+        title: 'Technical Product Managemer',
+        desc: loremIpsum,
+        img: '/images/64969328-3cc3-11e8-9f69-0242ac11000f-jpg-hero_image.jpeg'
+      }
+    };
+
+    const job = JOBS[jobId] || { title: 'Not Found', desc: 'No job matches that ID.', img: 'service.jpg' };
+    document.getElementById('job-title').textContent = job.title;
+    document.getElementById('job-desc').textContent = job.desc;
+    document.getElementById('job-logo').src = job.img;
+  </script>
+</body>
+</html>
