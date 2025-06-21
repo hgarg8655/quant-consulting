@@ -11,7 +11,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 const app = express();
 
-const upload = multer({ dest: path.join(__dirname, 'uploads/') });
+// Use memoryStorage for serverless environments like Vercel
+// This avoids writing files to a read-only filesystem.
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -36,7 +39,8 @@ app.post(
     if (req.file) {
       mailOptions.attachments.push({
         filename: req.file.originalname,
-        path: req.file.path
+        // Use the file buffer from memory instead of a file path
+        content: req.file.buffer
       });
     }
 
@@ -65,6 +69,6 @@ app.use((req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(3000, () =>
-  console.log('🚀  Server running at http://localhost:3000')
-);
+// Vercel handles the server logic, so we export the app instance.
+// Do NOT call app.listen()
+export default app;
